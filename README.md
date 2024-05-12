@@ -8,6 +8,8 @@ I'm creating a game with Godot but I have to learn Godot first, but there are as
 
 ![Example of mountain texture with different colored backgrounds.](mountain_texture.png)
 
+![Example of rock texture with different colored backgrounds.](rock_texture.png)
+
 <br>
 <br>
 

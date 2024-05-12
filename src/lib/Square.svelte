@@ -44,7 +44,9 @@
     </svg>
   </div> 
 {:else if squareDetails.item === 'mountain'}
-  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square mountain-bg {size} {squareDetails.color}"></div>
+  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg mountain-bg {size} {squareDetails.color}"></div>
+{:else if squareDetails.item === 'rock'}
+  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg rock-bg {size} {squareDetails.color}"></div>
 {:else}
   <div on:click={clickHandler} on:mouseenter={quickDraw} class="square {size} {squareDetails.color}"></div>
 {/if}

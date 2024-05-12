@@ -10,7 +10,7 @@
 <!-- svelte-ignore a11y-click-events-have-key-events -->
 <!-- svelte-ignore a11y-no-static-element-interactions -->
 
-<div class="color-palette">
+<div class="item-palette">
   <div on:click={() => setItem('')} class="square"></div>
   <div on:click={() => setItem('tree')} class="square">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 1" viewBox="0 0 598 771" class="item">
@@ -22,11 +22,13 @@
       <polygon points="300.76 80.84 210.9 236.49 390.62 236.49 300.76 80.84" fill="#009688"/>
     </svg>
   </div>
-  <div on:click={() => setItem('mountain')} class="square mountain-bg"></div>
+  <div on:click={() => setItem('mountain')} class="square item-bg mountain-bg"></div>
+  <div on:click={() => setItem('rock')} class="square item-bg rock-bg"></div>
 </div>
 
 <style lang="scss">
-  .color-palette {
+  .item-palette {
+    min-height: 70px;
     padding: 4px;
     background-color: #9c9666;
     border-radius: 0.25rem;
