@@ -81,7 +81,6 @@
 
 <style lang="scss">
   main {
-    background-color: #344b45;
     display: flex;
     justify-content: center;
     align-items: center;
