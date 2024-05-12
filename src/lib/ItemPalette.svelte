@@ -25,6 +25,7 @@
   <div on:click={() => setItem('mountain')} class="square item-bg mountain-bg"></div>
   <div on:click={() => setItem('rock')} class="square item-bg rock-bg"></div>
   <div on:click={() => setItem('bush')} class="square item-bg bush-bg"></div>
+  <div on:click={() => setItem('berry-bush')} class="square item-bg berry-bush-bg"></div>
 </div>
 
 <style lang="scss">

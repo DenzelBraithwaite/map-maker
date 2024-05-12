@@ -49,6 +49,8 @@
   <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg rock-bg {size} {squareDetails.color}"></div>
 {:else if squareDetails.item === 'bush'}
   <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg bush-bg {size} {squareDetails.color}"></div>
+{:else if squareDetails.item === 'berry-bush'}
+  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg berry-bush-bg {size} {squareDetails.color}"></div>
 {:else}
   <div on:click={clickHandler} on:mouseenter={quickDraw} class="square {size} {squareDetails.color}"></div>
 {/if}
