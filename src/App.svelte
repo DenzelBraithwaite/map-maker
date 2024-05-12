@@ -96,7 +96,6 @@
     position: relative;
     width: 100dvw;
     height: 100dvh;
-    background-color: #fffdef;
     border-radius: 0.25rem;
 
     display: grid;
