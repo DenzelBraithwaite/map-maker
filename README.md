@@ -4,7 +4,7 @@ I'm creating a game with Godot but I have to learn Godot first, but there are as
 
 ![first creating with tool, a pixel cowboy with guns](doodle_1.png)
 
-![Example of colors and items, which so far include tree and mountain.](doodle_2.png)
+![example of creating a simple outside area with rocks, trees and mountains.](doodle_2.png)
 
 ![Example of mountain texture with different colored backgrounds.](mountain_texture.png)
 
