@@ -2,7 +2,11 @@
 
 I'm creating a game with Godot but I have to learn Godot first, but there are aspects of a game I know I want to make that I want to plan, such as the map. So, I created this lightweight map maker tool so I can play around with some map designs.
 
-![first creating with tool, a pixel cowboy with guns](map_maker.png)
+![first creating with tool, a pixel cowboy with guns](doodle_1.png)
+
+<br>
+
+![Example of colors and items, which so far include tree and mountain.](doodle_2.png)
 
 <br>
 <br>
