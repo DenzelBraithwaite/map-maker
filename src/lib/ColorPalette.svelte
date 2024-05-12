@@ -39,7 +39,7 @@
     background-color: #9c9666;
     border-radius: 0.25rem;
     
-    display: grid;
+    display: inline-grid;
     grid-template-columns: repeat(10, 1fr);
     gap: 2px;
     

@@ -1,10 +1,11 @@
 <script lang="ts">
   // Components
-  import { Button, ColorPalette, Map } from './lib/index';
+  import { Button, ColorPalette, ItemPalette, Map } from './lib/index';
 
-  let resizeValue = 4;
-  let size = 'size-5';
+  let resizeValue = 0;
+  let size = 'size-1';
   let currentColor = 'black';
+  let currentItem = '';
   let drawFastEnabled = false;
 
   function resizeGrid() {
@@ -48,8 +49,10 @@
   function changeColor(event: any) {
     currentColor = event.detail;
   }
-  
-  $: console.log(drawFastEnabled);
+
+  function changeItem(event: any) {
+    currentItem = event.detail;
+  }
 </script>
 
 <main>
@@ -62,13 +65,16 @@
         <input bind:checked={drawFastEnabled} type="checkbox" />
       </div>
 
-      <div class="color-palette">
+      <div class="palettes">
+        <h2 class="m-bottom-1">currentItem: <span class="color-blue">{currentItem || 'none'}</span></h2>
+        <h2 class="m-bottom-1">currentColor: <span class="square {currentColor}">{currentColor}</span></h2>
+        <ItemPalette on:set-item={changeItem}/>
         <ColorPalette on:set-color={changeColor}/>
       </div>
     </div>
 
     <div class="map">
-      <Map {size} {currentColor} {drawFastEnabled}/>
+      <Map {size} {currentColor} {currentItem} {drawFastEnabled}/>
     </div>
   </div>
 </main>
@@ -112,5 +118,23 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .square {
+    padding: 2px;
+    border-radius: 0.25rem;
+    transition: all 0.15s ease-out;
+    z-index: 1;
+
+    &:hover {
+      cursor: pointer;
+      scale: 1.1;
+      border-style: dashed;
+    }
+  }
+
+  // Utility
+  .m-bottom-1 {
+    margin-bottom: 1rem;
   }
 </style>

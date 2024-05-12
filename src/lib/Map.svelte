@@ -5,13 +5,14 @@
   // props
   export let size: string;
   export let currentColor: string;
+  export let currentItem: string;
   export let drawFastEnabled: boolean;
 </script>
 
 <div class="map">
   <!-- 2450 / 70 (cols) -->
   {#each Array(2450) as _}
-    <Square {size} {currentColor} {drawFastEnabled}/>
+    <Square {size} {currentColor} {currentItem} {drawFastEnabled}/>
   {/each}
 </div>
 
