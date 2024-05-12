@@ -4,9 +4,9 @@ I'm creating a game with Godot but I have to learn Godot first, but there are as
 
 ![first creating with tool, a pixel cowboy with guns](doodle_1.png)
 
-<br>
-
 ![Example of colors and items, which so far include tree and mountain.](doodle_2.png)
+
+![Example of mountain texture with different colored backgrounds.](mountain_texture.png)
 
 <br>
 <br>
