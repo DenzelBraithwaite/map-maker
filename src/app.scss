@@ -1,0 +1,99 @@
+:root {
+  --black: #000;
+  --white: #fff;
+  --dark-grey: #3b3b3b;
+  --grey: #a8a29e;
+  --maroon: #450a0a;
+  --brown: #78350f;
+  --red: #ef4444;
+  --pink: #fca5a5;
+  --orange: #f97316;
+  --gold: #f59e0b;
+  --yellow: #fde047;
+  --beige: #ffedd5;
+  --green: #4d7c0f;
+  --light-green: #a3e635;
+  --blue: #3b82f6;
+  --light-blue: #7dd3fc;
+  --indigo: #3730a3;
+  --light-indigo: #a5b4fc;
+  --purple: #581c87;
+  --light-purple: #d8b4fe;
+
+  --box-shadow-light: 0px 4px 8px #0000001c;
+  --box-shadow-heavy: 0px 6px 16px #0000005b;
+  color-scheme: light;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+*::before, *::after {
+  box-sizing: inherit; 
+}
+
+html,
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+i,
+div,
+span,
+input,
+label,
+select,
+textarea,
+fieldset {
+  margin: 0;
+  padding: 0;
+  font-family: "Happy Monkey", system-ui;
+  font-weight: 400;
+  font-style: normal;
+  color: var(--primary-grey);
+}
+
+h1, h2, h3, h4, h5, h6, label {
+  color: var(--primary-grey-lighter);
+}
+
+body, html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  line-height: 1.5rem;
+  font-weight: 400;
+
+  position: relative;
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  height: 100dvh;
+  width: 100dvw;
+  background-color: #344b45;
+  overflow-x: hidden;
+}
+
+// Changes the color of the selected text (didn't apply when I used ::selection, ::-moz-selection {})
+::selection {
+  // background-color: #1eaaaa90;
+  // color: #fff;
+}
+::-moz-selection {
+  // background-color: #1eaaaa90;
+  // color: #fff;
+}
+
+html, body, #app {
+  height: 100%;
+}
