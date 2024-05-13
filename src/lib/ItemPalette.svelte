@@ -15,6 +15,7 @@
 
 <div class="item-palette">
   <div on:click={() => setItem('')} class="square" class:active={item === ''}></div>
+  <div on:click={() => setItem('person')} class="square item-bg person-bg" class:active={item === 'person'}></div>
   <div on:click={() => setItem('tree')} class="square" class:active={item === 'tree'}>
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 1" viewBox="0 0 598 771" class="item">
       <rect x="270.59" y="569.5" width="57.92" height="197.88" fill="#795548"/>
@@ -30,7 +31,7 @@
   <div on:click={() => setItem('bush')} class="square item-bg bush-bg" class:active={item === 'bush'}></div>
   <div on:click={() => setItem('berry-bush')} class="square item-bg berry-bush-bg" class:active={item === 'berry-bush'}></div>
   <div on:click={() => setItem('chest')} class="square item-bg chest-bg" class:active={item === 'chest'}></div>
-  <div on:click={() => setItem('person')} class="square item-bg person-bg" class:active={item === 'person'}></div>
+  <div on:click={() => setItem('house')} class="square item-bg house-bg" class:active={item === 'house'}></div>
   <h2 class="toolbar-title">Objects</h2>
 </div>
 

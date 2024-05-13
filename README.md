@@ -6,6 +6,8 @@ I'm creating a game with Godot but I have to learn Godot first, but there are as
 
 ![example of creating a simple outside area with rocks, trees and mountains.](doodle_2.png)
 
+![Example of person texture with different colored backgrounds.](person_texture.png)
+
 ![Example of mountain texture with different colored backgrounds.](mountain_texture.png)
 
 ![Example of rock texture with different colored backgrounds.](rock_texture.png)
@@ -16,7 +18,7 @@ I'm creating a game with Godot but I have to learn Godot first, but there are as
 
 ![Example of chest texture with different colored backgrounds.](chest_texture.png)
 
-![Example of person texture with different colored backgrounds.](person_texture.png)
+![Example of house texture with different colored backgrounds.](house_texture.png)
 
 <br>
 <br>

@@ -104,6 +104,10 @@ html, body, #app {
 }
 
 // imgs
+.person-bg {
+  background: url('/person.png');
+}
+
 .mountain-bg {
   background: url('/mountain.png');
 }
@@ -124,11 +128,9 @@ html, body, #app {
   background: url('/chest.png');
 }
 
-.person-bg {
-  background: url('/person.png');
+.house-bg {
+  background: url('/house.png');
 }
-
-
 
 .item-bg {
   width: 100%;

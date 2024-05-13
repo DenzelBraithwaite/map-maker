@@ -26,7 +26,9 @@
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
 
-{#if squareDetails.item === 'tree'}
+{#if squareDetails.item === 'person'}
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg person-bg {size} {squareDetails.color}"></div>
+{:else if squareDetails.item === 'tree'}
   <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square {size} {squareDetails.color}">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 1" viewBox="0 0 598 771">
       <rect x="270.59" y="569.5" width="57.92" height="197.88" fill="#795548"/>
@@ -47,8 +49,8 @@
   <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg berry-bush-bg {size} {squareDetails.color}"></div>
 {:else if squareDetails.item === 'chest'}
   <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg chest-bg {size} {squareDetails.color}"></div>
-{:else if squareDetails.item === 'person'}
-  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg person-bg {size} {squareDetails.color}"></div>
+{:else if squareDetails.item === 'house'}
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg house-bg {size} {squareDetails.color}"></div>
 {:else}
   <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square {size} {squareDetails.color}"></div>
 {/if}
