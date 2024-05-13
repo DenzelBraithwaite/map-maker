@@ -3,16 +3,15 @@
   export let size: string;
   export let currentColor: string;
   export let currentItem: string;
-  export let drawFastEnabled: boolean;
 
-  type sq = {
+  type Sq = {
     size: string;
     color: string;
     item: string;
     text: string;
   }
 
-  const squareDetails: sq = {
+  const squareDetails: Sq = {
     size: size,
     color: 'white',
     item: '',
@@ -23,17 +22,12 @@
     squareDetails.color = currentColor;
     squareDetails.item = currentItem;
   }
-
-  function quickDraw() {
-    if (drawFastEnabled) squareDetails.color = currentColor;
-    if (drawFastEnabled) squareDetails.item = currentItem;
-  }
 </script>
   <!-- svelte-ignore a11y-click-events-have-key-events -->
   <!-- svelte-ignore a11y-no-static-element-interactions -->
 
 {#if squareDetails.item === 'tree'}
-  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square {size} {squareDetails.color}">
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square {size} {squareDetails.color}">
     <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" data-name="Layer 1" viewBox="0 0 598 771">
       <rect x="270.59" y="569.5" width="57.92" height="197.88" fill="#795548"/>
       <polygon points="301.36 414.49 40.14 650.9 562.59 650.9 301.36 414.49" fill="#009688"/>
@@ -44,26 +38,30 @@
     </svg>
   </div> 
 {:else if squareDetails.item === 'mountain'}
-  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg mountain-bg {size} {squareDetails.color}"></div>
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg mountain-bg {size} {squareDetails.color}"></div>
 {:else if squareDetails.item === 'rock'}
-  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg rock-bg {size} {squareDetails.color}"></div>
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg rock-bg {size} {squareDetails.color}"></div>
 {:else if squareDetails.item === 'bush'}
-  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg bush-bg {size} {squareDetails.color}"></div>
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg bush-bg {size} {squareDetails.color}"></div>
 {:else if squareDetails.item === 'berry-bush'}
-  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square item-bg berry-bush-bg {size} {squareDetails.color}"></div>
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg berry-bush-bg {size} {squareDetails.color}"></div>
+{:else if squareDetails.item === 'chest'}
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg chest-bg {size} {squareDetails.color}"></div>
+{:else if squareDetails.item === 'person'}
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg person-bg {size} {squareDetails.color}"></div>
 {:else}
-  <div on:click={clickHandler} on:mouseenter={quickDraw} class="square {size} {squareDetails.color}"></div>
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square {size} {squareDetails.color}"></div>
 {/if}
 
 <style lang="scss">
   .square {
     border: 1px solid #1f1f1f;
-    transition: all 0.15s ease-out;
-
-    &:hover {
-      cursor: pointer;
+    cursor: crosshair;
+    
+    &:hover,
+    &:active {
       scale: 1.1;
-      border-style: dashed;
+      border: 4px solid #2e2e2e;
     }
   }
 </style>

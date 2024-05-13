@@ -6,7 +6,6 @@
   let size = 'size-1';
   let currentColor = 'black';
   let currentItem = '';
-  let drawFastEnabled = false;
 
   function resizeGrid() {
     switch (resizeValue) {
@@ -57,24 +56,20 @@
 
 <main>
   <div class="map-container">
-    <div class="toolbar">
+    <section class="toolbar">
       <div class="resize-wrapper">
         <h2>Resize (<span class="color-blue">{resizeValue}</span>)</h2>
         <input bind:value={resizeValue} on:change={resizeGrid} step="01" min="0" max="9" type="range" />
-        <h2>Quick Draw</h2>
-        <input bind:checked={drawFastEnabled} type="checkbox" />
       </div>
 
       <div class="palettes">
-        <h2 class="m-bottom-1">currentItem: <span class="color-blue">{currentItem || 'none'}</span></h2>
-        <h2 class="m-bottom-1">currentColor: <span class="square {currentColor}">{currentColor}</span></h2>
         <ItemPalette on:set-item={changeItem}/>
         <ColorPalette on:set-color={changeColor}/>
       </div>
-    </div>
+    </section>
 
     <div class="map">
-      <Map {size} {currentColor} {currentItem} {drawFastEnabled}/>
+      <Map {size} {currentColor} {currentItem}/>
     </div>
   </div>
 </main>
@@ -105,10 +100,17 @@
     overflow: scroll;
   }
 
+  .palettes {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
   .toolbar {
     grid-column: 1 / -1;
     color: var(--white);
-    padding: 0.5rem;
+    padding: 0.5rem 0.5rem 2rem;
     background-color: #1a1a1a;
     box-shadow: var(--box-shadow-heavy);
     z-index: 1;
@@ -116,6 +118,14 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+
+    .toolbar-title {
+      font-size: 1.25rem;
+      position: absolute;
+      bottom: -1.75rem;
+      right: 50%;
+      transform: translateX(50%);
+    }
   }
 
   .square {

@@ -6,15 +6,31 @@
   export let size: string;
   export let currentColor: string;
   export let currentItem: string;
-  export let drawFastEnabled: boolean;
+
+  type Square = {
+    id: number;
+    size?: string;
+    color?: string;
+    item?: string;
+    text?: string;
+  }
+
+  let squares: Square[] = [];
+  // 2450 / 70 ( col s)
+  for (let i = 1; i <= 2450; i++) {
+    squares = [{id: i}, ...squares];
+  }
+
+  function sortHandler(e: any): void {
+    squares = e.detail.items;
+  }
 </script>
 
-<div class="map">
-  <!-- 2450 / 70 (cols) -->
-  {#each Array(2450) as _}
-    <Square {size} {currentColor} {currentItem} {drawFastEnabled}/>
-  {/each}
-</div>
+<section class="map">
+  {#each squares as s (s.id)}
+  <Square {size} {currentColor} {currentItem}/>
+{/each}
+</section>
 
 <style lang="scss">
   .map {

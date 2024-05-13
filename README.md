@@ -14,6 +14,10 @@ I'm creating a game with Godot but I have to learn Godot first, but there are as
 
 ![Example of berry bush texture with different colored backgrounds.](berry_bush_texture.png)
 
+![Example of chest texture with different colored backgrounds.](chest_texture.png)
+
+![Example of person texture with different colored backgrounds.](person_texture.png)
+
 <br>
 <br>
 

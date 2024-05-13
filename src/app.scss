@@ -83,6 +83,12 @@ body, html {
   overflow-x: hidden;
 }
 
+input[type="checkbox"] {
+  height: 1.5rem;
+  width: 1.5rem;
+  border-radius: 0.25rem;
+}
+
 // Changes the color of the selected text (didn't apply when I used ::selection, ::-moz-selection {})
 ::selection {
   background-color: #fff;
@@ -113,6 +119,16 @@ html, body, #app {
 .berry-bush-bg {
   background: url('/berry_bush.png');
 }
+
+.chest-bg {
+  background: url('/chest.png');
+}
+
+.person-bg {
+  background: url('/person.png');
+}
+
+
 
 .item-bg {
   width: 100%;
