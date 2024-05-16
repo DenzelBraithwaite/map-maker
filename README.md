@@ -2,23 +2,25 @@
 
 I'm creating a game with Godot but I have to learn Godot first, but there are aspects of a game I know I want to make that I want to plan, such as the map. So, I created this lightweight map maker tool so I can play around with some map designs.
 
-![first creating with tool, a pixel cowboy with guns](doodle_1.png)
+![first creating with tool, a pixel cowboy with guns](public/doodle_1.png)
 
-![example of creating a simple outside area with rocks, trees and mountains.](doodle_2.png)
+![example of creating a simple outside area with rocks, trees and mountains.](public/doodle_2.png)
 
-![Example of person texture with different colored backgrounds.](person_texture.png)
+![Example of person texture with different colored backgrounds.](public/person_texture.png)
 
-![Example of mountain texture with different colored backgrounds.](mountain_texture.png)
+![Example of mountain texture with different colored backgrounds.](public/mountain_texture.png)
 
-![Example of rock texture with different colored backgrounds.](rock_texture.png)
+![Example of rock texture with different colored backgrounds.](public/rock_texture.png)
 
-![Example of bush texture with different colored backgrounds.](bush_texture.png)
+![Example of bush texture with different colored backgrounds.](public/bush_texture.png)
 
-![Example of berry bush texture with different colored backgrounds.](berry_bush_texture.png)
+![Example of berry bush texture with different colored backgrounds.](public/berry_bush_texture.png)
 
-![Example of chest texture with different colored backgrounds.](chest_texture.png)
+![Example of chest texture with different colored backgrounds.](public/chest_texture.png)
 
-![Example of house texture with different colored backgrounds.](house_texture.png)
+![Example of house texture with different colored backgrounds.](public/house_texture.png)
+
+![Example of house texture with different colored backgrounds.](public/track_texture.png)
 
 <br>
 <br>

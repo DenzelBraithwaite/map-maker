@@ -51,6 +51,8 @@
   <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg chest-bg {size} {squareDetails.color}"></div>
 {:else if squareDetails.item === 'house'}
   <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg house-bg {size} {squareDetails.color}"></div>
+{:else if squareDetails.item === 'track'}
+  <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square item-bg track-bg {size} {squareDetails.color}"></div>
 {:else}
   <div draggable={true} on:touchstart={clickHandler} on:dragenter={clickHandler} on:click={clickHandler} class="square {size} {squareDetails.color}"></div>
 {/if}
