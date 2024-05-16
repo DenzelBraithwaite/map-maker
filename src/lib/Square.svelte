@@ -3,15 +3,17 @@
   export let size: string;
   export let currentColor: string;
   export let currentItem: string;
+  // export let square: 
 
-  type Sq = {
-    size: string;
-    color: string;
-    item: string;
-    text: string;
+  type Tile = {
+    id?: number;
+    size?: string;
+    color?: string;
+    item?: string;
+    text?: string;
   }
 
-  const squareDetails: Sq = {
+  const squareDetails: Tile = {
     size: size,
     color: 'white',
     item: '',

@@ -1,4 +1,6 @@
 <script lang="ts">
+  import firebase from './firebase.js';
+
   // Components
   import { Button, ColorPalette, ItemPalette, Map } from './lib/index';
 
@@ -52,6 +54,33 @@
   function changeItem(event: any) {
     currentItem = event.detail;
   }
+
+  function testFirebase() {
+  //   fetch('https://api.example.com/data')
+  // .then(response => response.json())
+  // .then(data => {
+  //   console.log('GET response:', data);
+  // })
+  // .catch(error => {
+  //   console.error('Error fetching data:', error);
+  // });
+
+    fetch('https://kk-map-maker-default-rtdb.firebaseio.com/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'Access-Control-Allow-Origin': '*'
+      },
+      body: JSON.stringify({test: 'this is a test from map maker!'})
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('POST response:', data);
+    })
+    .catch(error => {
+      console.error('Error posting data:', error);
+    });
+  }
 </script>
 
 <main>
@@ -61,6 +90,8 @@
         <h2>Resize (<span class="color-blue">{resizeValue}</span>)</h2>
         <input bind:value={resizeValue} on:change={resizeGrid} step="01" min="0" max="9" type="range" />
       </div>
+      <!-- <button class="clear-btn">Clear</button> -->
+      <button on:click={testFirebase}>Test Firebase</button>
 
       <div class="palettes">
         <ItemPalette on:set-item={changeItem}/>
@@ -144,5 +175,9 @@
   // Utility
   .m-bottom-1 {
     margin-bottom: 1rem;
+  }
+
+  .color-blue {
+    color: var(--blue);
   }
 </style>
