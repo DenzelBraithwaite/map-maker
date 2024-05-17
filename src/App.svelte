@@ -1,13 +1,14 @@
 <script lang="ts">
-  import firebase from './firebase.js';
+  import firebase from './lib/firebase.js';
 
   // Components
-  import { Button, ColorPalette, ItemPalette, Map } from './lib/index';
+  import { Button, ColorPalette, ItemPalette, Map } from './lib/components/index';
 
   let resizeValue = 0;
   let size = 'size-1';
   let currentColor = 'black';
   let currentItem = '';
+  let firebaseUrl = 'https://kk-map-maker-default-rtdb.firebaseio.com/';
 
   function resizeGrid() {
     switch (resizeValue) {
@@ -56,30 +57,30 @@
   }
 
   function testFirebase() {
-  //   fetch('https://api.example.com/data')
-  // .then(response => response.json())
-  // .then(data => {
-  //   console.log('GET response:', data);
-  // })
-  // .catch(error => {
-  //   console.error('Error fetching data:', error);
-  // });
-
-    fetch('https://kk-map-maker-default-rtdb.firebaseio.com/', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Access-Control-Allow-Origin': '*'
-      },
-      body: JSON.stringify({test: 'this is a test from map maker!'})
-    })
+    fetch(firebaseUrl)
     .then(response => response.json())
     .then(data => {
-      console.log('POST response:', data);
+      console.log('GET response:', data);
     })
     .catch(error => {
-      console.error('Error posting data:', error);
+      console.error('Error fetching data:', error);
     });
+
+    // fetch(firebaseUrl, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*'
+    //   },
+    //   body: JSON.stringify({test: 'this is a test from map maker!'})
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('POST response:', data);
+    // })
+    // .catch(error => {
+    //   console.error('Error posting data:', error);
+    // });
   }
 </script>
 
