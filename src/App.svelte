@@ -1,14 +1,46 @@
 <script lang="ts">
   import firebase from './lib/firebase.js';
 
+  // stores
+  import { squares } from './lib/stores/squares';
+
   // Components
   import { Button, ColorPalette, ItemPalette, Map } from './lib/components/index';
 
   let resizeValue = 0;
+  let bordersVisible = false || Boolean(JSON.parse(localStorage.getItem('borders-visible')));
+  let fillModeEnabled = false;
   let size = 'size-1';
   let currentColor = 'black';
   let currentItem = '';
   let firebaseUrl = 'https://kk-map-maker-default-rtdb.firebaseio.com/';
+
+  function testFirebase() {
+    fetch(firebaseUrl)
+    .then(response => response.json())
+    .then(data => {
+      console.log('GET response:', data);
+    })
+    .catch(error => {
+      console.error('Error fetching data:', error);
+    });
+
+    // fetch(firebaseUrl, {
+    //   method: 'POST',
+    //   headers: {
+    //     'Content-Type': 'application/json',
+    //     'Access-Control-Allow-Origin': '*'
+    //   },
+    //   body: JSON.stringify({test: 'this is a test from map maker!'})
+    // })
+    // .then(response => response.json())
+    // .then(data => {
+    //   console.log('POST response:', data);
+    // })
+    // .catch(error => {
+    //   console.error('Error posting data:', error);
+    // });
+  }
 
   function resizeGrid() {
     switch (resizeValue) {
@@ -56,48 +88,70 @@
     currentItem = event.detail;
   }
 
-  function testFirebase() {
-    fetch(firebaseUrl)
-    .then(response => response.json())
-    .then(data => {
-      console.log('GET response:', data);
-    })
-    .catch(error => {
-      console.error('Error fetching data:', error);
+  function clearScreen(): void {
+    $squares.forEach(s => {
+      localStorage.setItem(`square-${s.id}`, JSON.stringify({id: s.id, size: s.size, color: 'beige', border: s.border, item: ''}));
     });
+    squares.update($squares => {
+      return $squares.map(s => {
+        s.color = 'beige';
+        s.item = '';
+        return s;
+      });
+    });
+  }
 
-    // fetch(firebaseUrl, {
-    //   method: 'POST',
-    //   headers: {
-    //     'Content-Type': 'application/json',
-    //     'Access-Control-Allow-Origin': '*'
-    //   },
-    //   body: JSON.stringify({test: 'this is a test from map maker!'})
-    // })
-    // .then(response => response.json())
-    // .then(data => {
-    //   console.log('POST response:', data);
-    // })
-    // .catch(error => {
-    //   console.error('Error posting data:', error);
-    // });
+  function fillScreen(event: any): void {
+    const selectedColor = event.detail;
+    $squares.forEach(s => {
+      localStorage.setItem(`square-${s.id}`, JSON.stringify({id: s.id, size: s.size, color: selectedColor, border: s.border, item: ''}));
+    });
+    squares.update($squares => {
+      return $squares.map(s => {
+        s.color = selectedColor;
+        return s;
+      });
+    });
+  }
+
+  function toggleBorders(): void {
+    localStorage.setItem('borders-visible', JSON.stringify(bordersVisible));
+    $squares.forEach(s => {
+      localStorage.setItem(`square-${s.id}`, JSON.stringify({id: s.id, size: s.size, color: s.color, border: bordersVisible, item: ''}));
+    });
+    squares.update($squares => {
+      return $squares.map(s => {
+        s.border = bordersVisible;
+        return s;
+      });
+    });
   }
 </script>
 
 <main>
   <div class="map-container">
     <section class="toolbar">
-      <div class="resize-wrapper">
-        <h2>Resize (<span class="color-blue">{resizeValue}</span>)</h2>
-        <input bind:value={resizeValue} on:change={resizeGrid} step="01" min="0" max="9" type="range" />
-      </div>
-      <!-- <button class="clear-btn">Clear</button> -->
-      <button style="background: none" on:click={testFirebase}>Test Firebase</button>
+      <!-- <button on:click={testFirebase}>Test Firebase</button> -->
+      <div class="toolbar-wrapper">
+        <button on:click={clearScreen} class="toolbar-btn">Clear</button>
 
-      <div class="palettes">
-        <ItemPalette on:set-item={changeItem}/>
-        <ColorPalette on:set-color={changeColor}/>
+        <h2 class="toolbar-title">Borders
+          <input bind:checked={bordersVisible} on:change={toggleBorders} type="checkbox"/>
+        </h2>
+        <h2 class="toolbar-title">Fill
+          <input bind:checked={fillModeEnabled} type="checkbox"/>
+        </h2>
+
+        <h2 class="toolbar-title">Zoom (<span class="color-blue">{resizeValue}</span>)
+          <input bind:value={resizeValue} on:change={resizeGrid} step="01" min="0" max="9" type="range" />
+        </h2>
+
+        <div class="palettes">
+          <ItemPalette on:set-item={changeItem}/>
+          <ColorPalette {fillModeEnabled} on:set-color={changeColor} on:fill-screen={fillScreen}/>
+        </div>
       </div>
+
     </section>
 
     <div class="map">
@@ -132,36 +186,53 @@
     overflow: scroll;
   }
 
-  .palettes {
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    gap: 0.5rem;
-  }
-
   .toolbar {
-    grid-column: 1 / -1;
     color: var(--white);
-    padding: 2.5rem 2rem;
     background-color: #000000b6;
     box-shadow: var(--box-shadow-heavy);
     z-index: 1;
-    border-radius: 0 0 0 75px;
+    border-radius: 10px;
+    max-width: 90dvw;
 
     position: absolute;
-    right: 0;
-    width: 1000px;
+    right: 50%;
+    transform: translateX(50%);
     
     display: flex;
-    justify-content: space-between;
     align-items: center;
+    gap: 16px;
 
     .toolbar-title {
-      font-size: 1.25rem;
-      position: absolute;
-      bottom: -1.75rem;
-      right: 50%;
-      transform: translateX(50%);
+      font-size: 1.125rem;
+    }
+
+    .toolbar-wrapper {
+      padding: 1.25rem 1.25rem 1.5rem;
+      overflow-x: scroll;
+      display: flex;
+      align-items: center;
+      gap: 16px;
+
+      .palettes {
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        gap: 0.5rem;
+      }
+
+      .toolbar-btn {
+        padding: 0.5rem;
+        background-color: var(--red);
+        border: none;
+        border-radius: 4px;
+        color: var(--white);
+
+        &:hover {
+          cursor: pointer;
+          scale: 1.05;
+          background-color: #f45858;
+        }
+      }
     }
   }
 

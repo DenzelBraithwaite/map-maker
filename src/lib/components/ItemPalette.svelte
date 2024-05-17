@@ -32,17 +32,17 @@
   <div on:click={() => setItem('berry-bush')} class="square item-bg berry-bush-bg" class:active={item === 'berry-bush'}></div>
   <div on:click={() => setItem('chest')} class="square item-bg chest-bg" class:active={item === 'chest'}></div>
   <div on:click={() => setItem('house')} class="square item-bg house-bg" class:active={item === 'house'}></div>
-  <h2 class="toolbar-title">Objects</h2>
+  <div on:click={() => setItem('track')} class="square item-bg track-bg" class:active={item === 'track'}></div>
 </div>
 
 
 <style lang="scss">
   .item-palette {
     position: relative;
-    min-height: 70px;
+    height: 70px;
     padding: 4px;
     background-color: #9c9666;
-    border-radius: 0.25rem;
+    border-radius: 4px;
     
     display: inline-grid;
     grid-template-columns: repeat(10, 1fr);

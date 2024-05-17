@@ -2,12 +2,17 @@
   // hooks
   import { createEventDispatcher } from "svelte";
   
+  // Props
+  export let fillModeEnabled: boolean;
+
   const createEvent = createEventDispatcher();
   let color = 'black';
 
   function setColor(c: string): void {
     color = c;
     createEvent('set-color', c);
+
+    if (fillModeEnabled) createEvent('fill-screen', color);
   }
 </script>
 <!-- svelte-ignore a11y-click-events-have-key-events -->
@@ -34,7 +39,6 @@
   <div on:click={() => setColor('light-blue')} class="square bg-light-blue" class:active-light={color === 'light-blue'}></div>
   <div on:click={() => setColor('light-indigo')} class="square bg-light-indigo" class:active-light={color === 'light-indigo'}></div>
   <div on:click={() => setColor('light-purple')} class="square bg-light-purple" class:active-light={color === 'light-purple'}></div>
-  <h2 class="toolbar-title">Colors</h2>
 </div>
 
 <style lang="scss">

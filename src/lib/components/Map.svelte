@@ -14,6 +14,17 @@
   async function isReady(): Promise<void> {
     await getSquares();
   }
+
+  function handleSquareClick(event: any): void {
+    const tile = event.detail;
+    localStorage.setItem(`square-${tile.id}`, JSON.stringify(tile));
+    squares.update($squares => {
+      return $squares.map($s => {
+        if ($s.id === tile.id) $s = tile;
+        return $s;
+      });
+    });
+  }
 </script>
 
 <section class="map">
@@ -21,7 +32,7 @@
     <p>Loading...</p>
   {:then}
     {#each $squares as sq (sq.id)}
-      <Square {size} {currentColor} {currentItem} tileDetails={sq}/>
+      <Square {size} {currentColor} {currentItem} tileDetails={sq} on:click={handleSquareClick}/>
     {/each}
   {/await}
 </section>
