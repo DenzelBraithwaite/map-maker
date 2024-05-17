@@ -92,7 +92,7 @@
         <input bind:value={resizeValue} on:change={resizeGrid} step="01" min="0" max="9" type="range" />
       </div>
       <!-- <button class="clear-btn">Clear</button> -->
-      <button on:click={testFirebase}>Test Firebase</button>
+      <button style="background: none" on:click={testFirebase}>Test Firebase</button>
 
       <div class="palettes">
         <ItemPalette on:set-item={changeItem}/>
@@ -142,10 +142,15 @@
   .toolbar {
     grid-column: 1 / -1;
     color: var(--white);
-    padding: 0.5rem 0.5rem 2rem;
-    background-color: #1a1a1a;
+    padding: 2.5rem 2rem;
+    background-color: #000000b6;
     box-shadow: var(--box-shadow-heavy);
     z-index: 1;
+    border-radius: 0 0 0 75px;
+
+    position: absolute;
+    right: 0;
+    width: 1000px;
     
     display: flex;
     justify-content: space-between;

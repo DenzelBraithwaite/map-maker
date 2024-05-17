@@ -99,6 +99,21 @@ input[type="checkbox"] {
   color: #000;
 }
 
+/* When content overflows, scrollbar visible */
+.map::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+}
+
+.map::-webkit-scrollbar-track {
+  background: var(--beige);
+}
+  
+.map::-webkit-scrollbar-thumb {
+  background: var(--dark-grey);
+  border-radius: 8px;
+}
+
 html, body, #app {
   height: 100%;
 }
