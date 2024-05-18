@@ -22,6 +22,8 @@ I'm creating a game with Godot but I have to learn Godot first, but there are as
 
 ![Example of house texture with different colored backgrounds.](public/track_texture.png)
 
+![Example of tree texture with different colored backgrounds.](public/tree_texture.png)
+
 <br>
 <br>
 
